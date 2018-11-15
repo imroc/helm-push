@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 cd $HELM_PLUGIN_DIR
 version="$(cat plugin.yaml | grep "version" | cut -d '"' -f 2)"
@@ -18,7 +18,7 @@ case "${unameOut}" in
 esac
 
 arch=`uname -m`
-url="https://github.com/imroc/helm-push/releases/download/${version}/helmpush_${version}_${os}_${arch}.tar.gz"
+url="https://github.com/imroc/helm-push/releases/download/${version}/helm-push_${version}_${os}_${arch}.tar.gz"
 
 if [ "$url" = "" ]
 then
