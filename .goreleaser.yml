@@ -2,7 +2,7 @@
 # Build customization
 builds:
   - main: ./cmd/push
-    binary: ./bin/helmpush
+    binary: helmpush
     goos:
       - windows
       - darwin
