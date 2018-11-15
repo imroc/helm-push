@@ -1,0 +1,19 @@
+# .goreleaser.yml
+# Build customization
+builds:
+  - main: ./cmd/push
+    binary: ./bin/helmpush
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+    env:
+      - CGO_ENABLED=0
+archive:
+  format: tar.gz
+  replacements:
+    amd64: x86_64
+    darwin: Darwin
+    linux: Linux

@@ -1,0 +1,10 @@
+name: "push"
+version: "0.1.0"
+usage: "Please see https://github.com/imroc/helm-push for usage"
+description: |-
+  Push chart package to TencentHub
+command: "$HELM_PLUGIN_DIR/bin/helmpush"
+
+hooks:
+  install: "cd $HELM_PLUGIN_DIR; ./scripts/install.sh"
+  update: "cd $HELM_PLUGIN_DIR; ./scripts/install.sh"
