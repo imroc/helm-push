@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 cd $HELM_PLUGIN_DIR
 version="$(cat plugin.yaml | grep "version" | cut -d '"' -f 2)"
@@ -18,13 +18,15 @@ case "${unameOut}" in
 esac
 
 arch=`uname -m`
-url="https://github.com/imroc/helm-push/releases/download/${version}/helmpush${version}_${os}_${arch}.tar.gz"
+url="https://github.com/imroc/helm-push/releases/download/${version}/helmpush_${version}_${os}_${arch}.tar.gz"
 
 if [ "$url" = "" ]
 then
     echo "Unsupported OS / architecture: ${os}_${arch}"
     exit 1
 fi
+
+echo "Downloading archive from $url"
 
 filename=`echo ${url} | sed -e "s/^.*\///g"`
 
